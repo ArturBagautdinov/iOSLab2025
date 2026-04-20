@@ -31,13 +31,13 @@ final class UserDetailViewModel {
     var isLoading = false
     var isFollowing = false
 
-    @ObservationIgnored private let repository: UsersRepository
+    @ObservationIgnored private let usersService: any UsersService
     @ObservationIgnored private let userID: Int
     @ObservationIgnored private var loadTask: Task<Void, Never>?
 
-    init(userID: Int, repository: UsersRepository) {
+    init(userID: Int, usersService: any UsersService) {
         self.userID = userID
-        self.repository = repository
+        self.usersService = usersService
     }
 
     var profileContent: ProfileContent? {
@@ -111,6 +111,11 @@ final class UserDetailViewModel {
         load()
     }
 
+    func reload() async {
+        load()
+        await loadTask?.value
+    }
+
     func toggleFollow() {
         isFollowing.toggle()
     }
@@ -124,7 +129,7 @@ final class UserDetailViewModel {
             guard let self else { return }
 
             do {
-                let loadedUser = try await repository.fetchUser(id: userID)
+                let loadedUser = try await usersService.fetchUser(id: userID)
                 try Task.checkCancellation()
 
                 user = loadedUser
@@ -134,6 +139,7 @@ final class UserDetailViewModel {
                 isLoading = false
             } catch {
                 isLoading = false
+                user = nil
                 errorMessage = error.localizedDescription
                 await refreshCacheLogs()
             }
@@ -141,6 +147,6 @@ final class UserDetailViewModel {
     }
 
     private func refreshCacheLogs() async {
-        cacheLogs = await repository.cacheLogs(limit: 8)
+        cacheLogs = await usersService.cacheLogs(limit: 8)
     }
 }

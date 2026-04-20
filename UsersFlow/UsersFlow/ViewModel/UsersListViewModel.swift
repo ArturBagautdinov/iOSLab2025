@@ -21,13 +21,13 @@ final class UsersListViewModel {
     var totalUsers = 0
     var selectedLimit = 20
     
-    @ObservationIgnored private let repository: UsersRepository
+    @ObservationIgnored private let usersService: any UsersService
     @ObservationIgnored private var loadTask: Task<Void, Never>?
     @ObservationIgnored private var searchTask: Task<Void, Never>?
     @ObservationIgnored private var prefetchTask: Task<Void, Never>?
 
-    init(repository: UsersRepository) {
-        self.repository = repository
+    init(usersService: any UsersService) {
+        self.usersService = usersService
     }
 
     func onAppear() {
@@ -75,13 +75,14 @@ final class UsersListViewModel {
         prefetchTask?.cancel()
         errorMessage = nil
         isLoading = true
+        isPrefetching = false
 
         let currentQuery = query ?? searchText
         loadTask = Task { [weak self] in
             guard let self else { return }
 
             do {
-                let page = try await repository.fetchUsers(query: currentQuery, limit: selectedLimit)
+                let page = try await usersService.fetchUsers(query: currentQuery, limit: selectedLimit, skip: 0)
                 try Task.checkCancellation()
 
                 users = page.users
@@ -91,9 +92,12 @@ final class UsersListViewModel {
                 startPrefetch(for: Array(page.users.prefix(8).map(\.id)))
             } catch is CancellationError {
                 isLoading = false
+                isPrefetching = false
             } catch {
                 isLoading = false
+                isPrefetching = false
                 users = []
+                totalUsers = 0
                 errorMessage = error.localizedDescription
                 await refreshCacheLogs()
             }
@@ -101,13 +105,16 @@ final class UsersListViewModel {
     }
 
     private func startPrefetch(for ids: [Int]) {
-        guard !ids.isEmpty else { return }
+        guard !ids.isEmpty else {
+            isPrefetching = false
+            return
+        }
 
         isPrefetching = true
         prefetchTask = Task { [weak self] in
             guard let self else { return }
 
-            await repository.prefetchUsers(ids: ids)
+            await usersService.prefetchUsers(ids: ids)
             guard !Task.isCancelled else { return }
 
             isPrefetching = false
@@ -116,6 +123,6 @@ final class UsersListViewModel {
     }
 
     private func refreshCacheLogs() async {
-        cacheLogs = await repository.cacheLogs()
+        cacheLogs = await usersService.cacheLogs(limit: 30)
     }
 }

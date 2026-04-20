@@ -201,8 +201,10 @@ struct UsersListView: View {
 
 #Preview {
     let repository = UsersRepository()
+    let usersService = RealUsersService(repository: repository)
     UsersListView(
-        viewModel: UsersListViewModel(repository: repository),
-        makeDetailViewModel: { UserDetailViewModel(userID: $0, repository: repository) }
+        viewModel: UsersListViewModel(usersService: usersService),
+        makeDetailViewModel: { UserDetailViewModel(userID: $0, usersService: usersService) }
     )
+    .environment(\.usersService, usersService)
 }

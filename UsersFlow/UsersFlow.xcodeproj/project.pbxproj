@@ -11,11 +11,27 @@
 		B9E2C4072F9601A0002D3B85 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B9E2C4062F9601A0002D3B85 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B900A4F22F966A4200278F2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9EE4FD82F9498C0009974DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9EE4FDF2F9498C0009974DE;
+			remoteInfo = UsersFlow;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		B900A4EE2F966A4200278F2F /* UsersFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UsersFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9EE4FE02F9498C0009974DE /* UsersFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsersFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		B900A4EF2F966A4200278F2F /* UsersFlowTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = UsersFlowTests;
+			sourceTree = "<group>";
+		};
 		B9EE4FE22F9498C0009974DE /* UsersFlow */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = UsersFlow;
@@ -24,6 +40,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B900A4EB2F966A4200278F2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9EE4FDD2F9498C0009974DE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				B9EE4FE22F9498C0009974DE /* UsersFlow */,
+				B900A4EF2F966A4200278F2F /* UsersFlowTests */,
 				B9EE4FE12F9498C0009974DE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				B9EE4FE02F9498C0009974DE /* UsersFlow.app */,
+				B900A4EE2F966A4200278F2F /* UsersFlowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,6 +80,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B900A4ED2F966A4200278F2F /* UsersFlowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B900A4F62F966A4200278F2F /* Build configuration list for PBXNativeTarget "UsersFlowTests" */;
+			buildPhases = (
+				B900A4EA2F966A4200278F2F /* Sources */,
+				B900A4EB2F966A4200278F2F /* Frameworks */,
+				B900A4EC2F966A4200278F2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B900A4F32F966A4200278F2F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B900A4EF2F966A4200278F2F /* UsersFlowTests */,
+			);
+			name = UsersFlowTests;
+			packageProductDependencies = (
+			);
+			productName = UsersFlowTests;
+			productReference = B900A4EE2F966A4200278F2F /* UsersFlowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B9EE4FDF2F9498C0009974DE /* UsersFlow */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9EE4FEB2F9498C1009974DE /* Build configuration list for PBXNativeTarget "UsersFlow" */;
@@ -89,6 +137,10 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					B900A4ED2F966A4200278F2F = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = B9EE4FDF2F9498C0009974DE;
+					};
 					B9EE4FDF2F9498C0009974DE = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -113,11 +165,19 @@
 			projectRoot = "";
 			targets = (
 				B9EE4FDF2F9498C0009974DE /* UsersFlow */,
+				B900A4ED2F966A4200278F2F /* UsersFlowTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B900A4EC2F966A4200278F2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9EE4FDE2F9498C0009974DE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +188,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B900A4EA2F966A4200278F2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9EE4FDC2F9498C0009974DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +204,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B900A4F32F966A4200278F2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9EE4FDF2F9498C0009974DE /* UsersFlow */;
+			targetProxy = B900A4F22F966A4200278F2F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		B900A4F42F966A4200278F2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YWCK7662S6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coolOrganization.UsersFlowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UsersFlow.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UsersFlow";
+			};
+			name = Debug;
+		};
+		B900A4F52F966A4200278F2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YWCK7662S6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coolOrganization.UsersFlowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UsersFlow.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UsersFlow";
+			};
+			name = Release;
+		};
 		B9EE4FE92F9498C1009974DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -328,6 +447,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B900A4F62F966A4200278F2F /* Build configuration list for PBXNativeTarget "UsersFlowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B900A4F42F966A4200278F2F /* Debug */,
+				B900A4F52F966A4200278F2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B9EE4FDB2F9498C0009974DE /* Build configuration list for PBXProject "UsersFlow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
