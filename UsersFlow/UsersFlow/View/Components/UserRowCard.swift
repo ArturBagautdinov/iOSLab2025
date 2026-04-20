@@ -9,7 +9,8 @@ import SwiftUI
 import UIComponents
 
 struct UserRowCard: View {
-    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorScheme)
+    private var colorScheme
 
     let user: UserPreview
 

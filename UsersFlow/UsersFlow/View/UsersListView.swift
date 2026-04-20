@@ -10,7 +10,8 @@ import SwiftUI
 import UIComponents
 
 struct UsersListView: View {
-    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorScheme)
+    private var colorScheme
 
     let viewModel: UsersListViewModel
     let makeDetailViewModel: (Int) -> UserDetailViewModel

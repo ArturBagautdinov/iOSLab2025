@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CacheLogPanel: View {
-    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorScheme)
+    private var colorScheme
 
     let title: String
     let logs: [UsersCache.LogEntry]
