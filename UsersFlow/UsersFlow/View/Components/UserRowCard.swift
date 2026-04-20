@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIComponents
 
 struct UserRowCard: View {
     @Environment(\.colorScheme) private var colorScheme
@@ -14,29 +15,12 @@ struct UserRowCard: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
-            AsyncImage(url: user.image) { phase in
-                switch phase {
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFill()
-                case .failure, .empty:
-                    LinearGradient(
-                        colors: [.orange.opacity(0.9), .pink.opacity(0.8)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                    .overlay {
-                        Image(systemName: "person.fill")
-                            .font(.title2.weight(.semibold))
-                            .foregroundStyle(.white)
-                    }
-                @unknown default:
-                    Color.gray.opacity(0.2)
-                }
-            }
+            UIComponents.UserAvatarView(
+                imageURL: user.image,
+                size: CGSize(width: 68, height: 68),
+                cornerRadius: 20
+            )
             .frame(width: 68, height: 68)
-            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
 
             VStack(alignment: .leading, spacing: 8) {
                 Text(user.fullName)

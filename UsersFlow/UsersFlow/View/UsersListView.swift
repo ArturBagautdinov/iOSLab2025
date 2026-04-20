@@ -7,6 +7,7 @@
 
 import Observation
 import SwiftUI
+import UIComponents
 
 struct UsersListView: View {
     @Environment(\.colorScheme) private var colorScheme
@@ -149,17 +150,8 @@ struct UsersListView: View {
     }
 
     private var loadingSection: some View {
-        VStack(spacing: 16) {
-            ForEach(0..<4, id: \.self) { _ in
-                RoundedRectangle(cornerRadius: 28, style: .continuous)
-                    .fill(Color("PlaceholderSurface"))
-                    .frame(height: 104)
-                    .overlay(alignment: .leading) {
-                        ProgressView()
-                            .padding(.leading, 24)
-                    }
-            }
-        }
+        UIComponents.LoadingView(rowCount: 4, rowHeight: 110)
+            .frame(height: 480)
     }
 
     private func statChip(

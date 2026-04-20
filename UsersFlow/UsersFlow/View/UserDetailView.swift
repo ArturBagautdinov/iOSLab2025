@@ -7,6 +7,7 @@
 
 import Observation
 import SwiftUI
+import UIComponents
 
 struct UserDetailView: View {
     @State private var viewModel: UserDetailViewModel
@@ -22,9 +23,13 @@ struct UserDetailView: View {
             VStack(spacing: 20) {
                 if bindableViewModel.user != nil {
                     if let profile = bindableViewModel.profileContent {
-                        ProfileControllerWrapper(
-                            profile: profile,
-                            isFollowing: bindableViewModel.isFollowing,
+                        UIComponents.ProfileCardView(
+                            viewData: .init(
+                                fullName: profile.fullName,
+                                email: profile.email,
+                                imageURL: profile.imageURL,
+                                isFollowing: bindableViewModel.isFollowing
+                            ),
                             onFollowTap: {
                                 bindableViewModel.toggleFollow()
                             }
@@ -37,8 +42,8 @@ struct UserDetailView: View {
                     }
                     CacheLogPanel(title: "Recent Cache Activity", logs: bindableViewModel.cacheLogs)
                 } else if bindableViewModel.isLoading {
-                    ProgressView("Loading profile...")
-                        .font(.system(.headline, design: .rounded, weight: .semibold))
+                    UIComponents.LoadingView(title: "Loading profile...", centersTitle: true)
+                        .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.top, 120)
                 } else {
                     ContentUnavailableView(

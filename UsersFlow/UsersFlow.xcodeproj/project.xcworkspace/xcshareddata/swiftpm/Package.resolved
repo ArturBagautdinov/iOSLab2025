@@ -1,0 +1,24 @@
+{
+  "originHash" : "b174291538ffdfbb9d125260af86708f5c1fd2a339e73b262690b4b1aab4cd7c",
+  "pins" : [
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "c152c1915f60c51e4afa0752656993ee5b3c63db",
+        "version" : "8.8.1"
+      }
+    },
+    {
+      "identity" : "uicomponents",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ArturBagautdinov/UIComponents.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "a4cd728e2d26b6b3ed8cd41724f62df50f8e4924"
+      }
+    }
+  ],
+  "version" : 3
+}
